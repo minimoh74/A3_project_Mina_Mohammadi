@@ -10,6 +10,10 @@ CHANGES:
 2-->adding final report at the end
 3--> please add more hyperparameters to achieve better results
 
+CHANGE_NEED_TO_BE_DONE:
+lotfan hypeparamter haye SVR ro bishtar konid ta b 97% ta 98% accuracy beresid **********
+kh awli k be samte rasm raftid ahsant
+
 """
 #-------------Import Libs---------------------------
 from sklearn.linear_model import LogisticRegression
