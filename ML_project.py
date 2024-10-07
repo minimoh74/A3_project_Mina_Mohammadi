@@ -85,8 +85,46 @@ my_params={ 'kernel':['linear','poly','rbf'],'C':[1,474],'gamma':[0.004,0.07]}
 gs=GridSearchCV(model,my_params,cv=kf,scoring='accuracy')
 gs.fit(x,y)
  
-gs.best_score_
-gs.best_params_ 
+gs.best_score_   #np.float64(0.9578203486654191)
+gs.best_params_  #{'C': 1, 'degree': 2, 'kernel': 'linear'}
+
+
+#===============report====================
+'''
+randomforest (RF) model has the best test score (96%)
+ with hyperparameters of {'max_features': 14, 'n_estimators': 56, 'random_state': 42}
+ so it is the best validation for this data
+'''
+
+#================ (rasm) ==================
+import numpy as np
+import matplotlib.pyplot as plt
+
+from sklearn.ensemble import RandomForestClassifier
+model= RandomForestClassifier(max_features= 14, n_estimators= 56, random_state= 42)
+my_params={}
+from sklearn.model_selection import GridSearchCV
+gs=GridSearchCV(model,param_grid=my_params,cv=kf,scoring='accuracy')
+gs.fit(x,y)
+
+x_coloum= x[:,2]
+x_coloum_2= x[:,3]
+
+y_pred=gs.predict(x_coloum)
+
+plt.scatter(x_coloum,x_coloum_2,c=y,cmap='viridis')
+plt.title('Data real')
+plt.xlabel('coloumn_3')
+plt.ylabel('coloumn_4')
+plt.grid()
+plt.show()
+
+plt.scatter(x_coloum,x_coloum_2,c=y_pred,cmap='viridis')
+plt.title('Data prediction')
+plt.xlabel('coloumn_3')
+plt.ylabel('coloumn_4')
+plt.grid()
+plt.show()
 
 
 
