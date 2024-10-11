@@ -24,6 +24,8 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.svm import SVC
 from sklearn.model_selection import KFold
 from sklearn.model_selection import GridSearchCV
+import numpy as np
+import matplotlib.pyplot as plt
 
 
 #-------------loading data-------------------------
@@ -37,8 +39,7 @@ kf= KFold(n_splits=4,shuffle=True,random_state=42)
 
 #========== (1) LogisticRegression ===============
 model= LogisticRegression()
-my_params={
-    }
+my_params={  }
 
 
 gs=GridSearchCV(model,param_grid=my_params,cv=kf,scoring='accuracy')
@@ -62,8 +63,7 @@ gs.best_params_  #{'metric': 'manhattan', 'n_neighbors': 10}
 #========== (3) DecisionTreeClassifier ===============
 model= DecisionTreeClassifier()
 my_params={'random_state':[42],'max_depth':[4,7,14,21,24,40,74],
-           'min_samples_leaf':[2,4,7,14],'min_samples_split':[4,5,7,12]
-    }
+           'min_samples_leaf':[2,4,7,14],'min_samples_split':[4,5,7,12]  }
 
 gs=GridSearchCV(model,param_grid=my_params,cv=kf,scoring='accuracy')
 gs.fit(x,y)
@@ -73,8 +73,7 @@ gs.best_params_   #{'max_depth': 7,'min_samples_leaf': 4,'min_samples_split': 4,
 
 #========== (4) RandomForestClassifier ===============
 model= RandomForestClassifier()
-my_params={'random_state':[42],'n_estimators':[4,7,10,14,24,56,74],'max_features':[4,14,24,74]
-    }
+my_params={'random_state':[42],'n_estimators':[4,7,10,14,24,56,74],'max_features':[4,14,24,74]  }
 
 gs=GridSearchCV(model,param_grid=my_params,cv=kf,scoring='accuracy')
 gs.fit(x,y)
@@ -84,25 +83,18 @@ gs.best_params_  #{'max_features': 14, 'n_estimators': 56, 'random_state': 42}
 
 #========== (5) SVC ===============
 model=SVC()
-my_params={ 'kernel':['linear','poly','rbf'],'C':[1,474],'gamma':[0.004,0.07]}
+my_params={ { 'kernel':['linear','poly','rbf'],'degree':[2,3,4],'C':[0.001,0.01,0.1,1,10,100],'gamma':['scale']}}
 
 gs=GridSearchCV(model,my_params,cv=kf,scoring='accuracy')
 gs.fit(x,y)
  
 gs.best_score_   #np.float64(0.9578203486654191)
-gs.best_params_  #{'C': 1, 'degree': 2, 'kernel': 'linear'}
+gs.best_params_  #{'C': 1, 'degree': 2, 'gamma': 'scale', 'kernel': 'linear'}
 
 
-#===============report====================
-'''
-randomforest (RF) model has the best test score (96%)
- with hyperparameters of {'max_features': 14, 'n_estimators': 56, 'random_state': 42}
- so it is the best validation for this data
-'''
 
-#================ (rasm) ==================
-import numpy as np
-import matplotlib.pyplot as plt
+#================ (plot of the model with best score) ==================
+
 
 from sklearn.ensemble import RandomForestClassifier
 model= RandomForestClassifier(max_features= 14, n_estimators= 56, random_state= 42)
@@ -135,8 +127,7 @@ plt.show()
 #========COMPARISON REPORT======================
 '''
 FINAL REPORT:
-
-
-
-
+randomforest (RF) model has the best test score (96%)
+ with hyperparameters of {'max_features': 14, 'n_estimators': 56, 'random_state': 42}
+ so it is the best validation for this data
 '''
