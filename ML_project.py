@@ -5,14 +5,12 @@ Created on Fri Oct  4 23:31:28 2024
 @author: mina
 
 
-CHANGES:
-1--> MOVING ALL IMPORTS AT THE FIRST LINES
-2-->adding final report at the end
-3--> please add more hyperparameters to achieve better results
-
-CHANGE_NEED_TO_BE_DONE:
-lotfan hypeparamter haye SVR ro bishtar konid ta b 97% ta 98% accuracy beresid **********
-kh awli k be samte rasm raftid ahsant
+APM:
+kafi hast dar enteha qutation bezanid va yek ghesmate report bezarid 
+ama aval begid ke data chi boode , x ha chi bode y ha chi boode va hadafeton chi boode
+va bnegid k har mdoel ch accuracy dashtand va kodom mdoel ba kodom parameter cheghad accuracy bedast ovorde ( daghigh na hodo)
+va be onvane porozhe final baram email konid 
+moafagh bashid
 
 """
 #-------------Import Libs---------------------------
