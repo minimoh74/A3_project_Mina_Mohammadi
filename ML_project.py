@@ -124,8 +124,26 @@ plt.show()
 
 #========COMPARISON REPORT======================
 '''
+This data is for breast cancer diagnosis which
+
+X: is the feature matrix containing the input data. Each row corresponds to a sample
+(in this case, a breast cancer tumor),
+and each column corresponds to a feature (measurements or characteristics of the tumors).
+For example, features might include radius, texture, perimeter, area, smoothness, compactness,and so on.
+and Y: is the target vector containing the labels for the samples.
+In the breast cancer dataset, the labels are binary: whether the tumor is malignant (1) or benign (0).
+
+Our purpose is finding a model with the highest scre (best validation) for diagnosis breast cancer.
+We tried five models with various hyperparameters which the result for each is below:
+    
+    LogisticRegression: best score=94%
+    KNeighborsClassifier: best score=94% and best params={'metric': 'manhattan', 'n_neighbors': 10}
+    DecisionTreeClassifier: best score=94% and best params={'max_depth': 7,'min_samples_leaf': 4,'min_samples_split': 4,'random_state': 42}
+    RandomForestClassifier: best score=96% and best params={'max_features': 14, 'n_estimators': 56, 'random_state': 42}
+    SVC: best score=96% and best params={'C': 1, 'degree': 2, 'gamma': 'scale', 'kernel': 'linear'}
 FINAL REPORT:
 randomforest (RF) model has the best test score (96%)
  with hyperparameters of {'max_features': 14, 'n_estimators': 56, 'random_state': 42}
- so it is the best validation for this data
+ so it has the best validation for this dataset
+
 '''
