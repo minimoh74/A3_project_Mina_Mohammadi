@@ -6,11 +6,7 @@ Created on Fri Oct  4 23:31:28 2024
 
 
 APM:
-kafi hast dar enteha qutation bezanid va yek ghesmate report bezarid 
-ama aval begid ke data chi boode , x ha chi bode y ha chi boode va hadafeton chi boode
-va bnegid k har mdoel ch accuracy dashtand va kodom mdoel ba kodom parameter cheghad accuracy bedast ovorde ( daghigh na hodo)
-va be onvane porozhe final baram email konid 
-moafagh bashid
+FINISH , Excellent !
 
 """
 #-------------Import Libs---------------------------
